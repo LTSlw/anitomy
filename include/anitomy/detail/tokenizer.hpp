@@ -136,7 +136,7 @@ private:
     static constexpr auto has_candidates = [](std::string_view prefix) {
       static constexpr auto keys = keywords | std::views::keys;
       const auto starts_with = [&prefix](std::string_view keyword) {
-        return std::ranges::starts_with(keyword, prefix, equal_to);
+        return keyword.starts_with(prefix);
       };
       return std::ranges::find_if(keys, starts_with) != keys.end();
     };

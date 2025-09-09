@@ -5,6 +5,8 @@
 
 #include <anitomy/detail/token.hpp>
 #include <anitomy/element.hpp>
+#include <anitomy/detail/container.hpp>
+#include <anitomy/detail/element.hpp>
 
 namespace anitomy::detail {
 

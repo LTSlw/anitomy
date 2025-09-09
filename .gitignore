@@ -2,3 +2,13 @@
 /.vscode/
 /bin/
 /build/
+
+# cmake
+CMakeFiles
+*.cmake
+Makefile
+CMakeCache.txt
+compile_commands.json
+
+# clangd
+.cache
