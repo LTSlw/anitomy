@@ -33,6 +33,16 @@ inline std::optional<Element> parse_file_extension(std::span<Token> tokens) noex
         "ts",
         "webm",
         "wmv",
+        "srt",
+        "vtt",
+        "ass",
+        "ssa",
+        "sub",
+        "ttxt",
+        "txt",
+        "sup",
+        "mks",
+        "scc",
     };
     // clang-format on
 
