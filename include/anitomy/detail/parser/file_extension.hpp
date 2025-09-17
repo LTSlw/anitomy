@@ -2,12 +2,15 @@
 
 #include <algorithm>
 #include <array>
+#include <iterator>
 #include <optional>
 #include <span>
+#include <string>
 
 #include <anitomy/detail/token.hpp>
 #include <anitomy/element.hpp>
 #include <anitomy/detail/element.hpp>
+#include "anitomy/detail/util.hpp"
 
 namespace anitomy::detail {
 
@@ -46,8 +49,14 @@ inline std::optional<Element> parse_file_extension(std::span<Token> tokens) noex
     };
     // clang-format on
 
+    static constexpr auto str_to_lower = [](const std::string& s) {
+      std::string res{};
+      std::ranges::transform(s, std::back_inserter(res), to_lower<char>);
+      return res;
+    };
+
     return (is_keyword_token(token) || is_text_token(token)) &&
-           std::ranges::contains(extensions, token.value);
+           std::ranges::contains(extensions, str_to_lower(token.value));
   };
 
   static constexpr auto is_dot = [](const Token& token) {
